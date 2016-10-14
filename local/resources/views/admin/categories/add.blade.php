@@ -1,10 +1,13 @@
 @extends('../../template.backend')
 
 @section('content')
-@if ($errors->any())
+
+@if($errors->has())
 <div class="alert alert-danger" role="alert">
-  {{ implode('', $errors->all('<p class="text-center">:message</p>')) }}
-</div>
+   @foreach ($errors->all() as $error)
+      <p class="text-center">{{ $error }}</p>
+  @endforeach
+  </div>
 @endif
 
 <div class="row">
@@ -13,7 +16,7 @@
 		<div class="portlet box green ">
       <div class="portlet-title">
        <div class="caption">
-        <i class="fa fa-gift"></i> Add Shift
+        <i class="fa fa-gift"></i> Add Book Category
       </div>
       <div class="tools">
         <a href="" class="collapse" data-original-title="" title="">
@@ -27,29 +30,23 @@
       </div>
     </div>
     <div class="portlet-body form">
-     <form class="form-horizontal" role="form" method="POST" action="{{ URL::route('admin-add-shift')}}">
+     <form class="form-horizontal" role="form" method="POST" action="{!! route('admin-add-book-category') !!}">
       <div class="form-body">
        <div class="form-group">
         <label class="col-md-3 control-label">Name</label>
         <div class="col-md-9">
-         <input type="text" name="name" class="form-control" placeholder="Enter text">
+         <input type="text" name="name" class="form-control" value="{!! old('name') !!}">
          
        </div>
      </div>
      <div class="form-group">
-      <label class="col-md-3 control-label">Start TIme</label>
+      <label class="col-md-3 control-label">Description</label>
       <div class="col-md-9">
-       <input type="time" name="start_time" class="form-control" >
-       
+       <textarea  name="description" class="form-control" >{!! old('description') !!}</textarea>
+        {!! csrf_field() !!}
      </div>
    </div>
-   <div class="form-group">
-    <label class="col-md-3 control-label">End TIme</label>
-    <div class="col-md-9">
-     <input type="time" name="end_time" class="form-control" >
-     
-   </div>
- </div>
+  
  
  
  

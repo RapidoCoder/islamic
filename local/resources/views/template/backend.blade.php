@@ -393,7 +393,7 @@ adsa
       </div>
       <div class="page-footer">
          <div class="page-footer-inner">
-            {{date("Y")!!} &copy; Islamic.
+            {!! date("Y")!!} &copy; Islamic.
          </div>
          <div class="scroll-to-top">
             <i class="icon-arrow-up"></i>

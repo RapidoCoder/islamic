@@ -19,5 +19,7 @@ Route::group(array('prefix' => 'admin'), function () {
  //////////////////////////Books categories/////////////////////////////
    Route::get('/categories', ['middleware'=>'admin-not-login','uses'=>'Admin\BookCategoriesController@index', 'as'=>'admin-book-categories']);
    Route::any('/admin-add-category', ['middleware'=>'admin-not-login','uses'=>'Admin\BookCategoriesController@add', 'as'=>'admin-add-book-category']);
+   Route::any('/admin-update-category/{id}', ['middleware'=>'admin-not-login','uses'=>'Admin\BookCategoriesController@update', 'as'=>'admin-update-book-category']) ->where('id', '[0-9]+');
+   Route::get('/admin-delete-category/{id}', ['middleware'=>'admin-not-login','uses'=>'Admin\BookCategoriesController@delete', 'as'=>'admin-delete-book-category']) ->where('id', '[0-9]+');
 
 });
