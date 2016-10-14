@@ -1,0 +1,109 @@
+.green position, .green .flexnav li a:hover, .green .flexnav li a.template-state-selected, 
+.green .flexnav .touch-button.template-icon-meta-arrow-large-tb:hover:before, 
+[class^="template-icon-feature-"], [class*=" template-icon-feature-"] {
+  color: #7eba41;
+}
+.green .template-header .template-header-top.template-header-top-sticky .template-header-top-icon-list a:hover, 
+.green .template-header .template-header-top.template-header-top-sticky .template-component-menu-default>.sf-menu>li>a:hover, 
+.green .template-header .template-header-top.template-header-top-sticky .template-component-menu-default>.sf-menu>li>a.template-state-selected, 
+.green .template-header .template-header-top.template-header-top-sticky .template-header-top-icon-list .template-icon-meta-menu:hover:before, 
+.green .template-header .template-header-top.template-header-top-static .template-header-top-icon-list a:hover, 
+.green .template-header .template-header-top.template-header-top-static .template-component-menu-default>.sf-menu>li>a:hover, 
+.green .template-header .template-header-top.template-header-top-static .template-component-menu-default>.sf-menu>li>a.template-state-selected, 
+.green .template-header .template-header-top.template-header-top-static .template-header-top-icon-list .template-icon-meta-menu:hover:before, 
+.green .template-blog .template-blog-header .template-blog-header-date span:first-child+span, 
+.green .template-widget-service ul li a:hover,
+.green .template-widget-archive ul li a:hover, .green .template-widget-category ul li a:hover, 
+.green .template-component-booking .template-component-booking-package-list>li>.template-component-booking-package-price, 
+.green .template-component-booking .template-component-booking-summary>li>h5, 
+.green .template-component-booking .template-component-booking-summary>li>div, 
+.green .template-component-button, .template-component-header-subheader span, 
+.green .template-component-italic, .green .template-component-team-list>ul>li>.template-component-team-list-position, 
+.green .flexnav li a:hover, .green .flexnav li a.template-state-selected, 
+.green .flexnav .touch-button.template-icon-meta-arrow-large-tb:hover:before, 
+[class^="template-icon-feature-"], 
+[class*=" template-icon-feature-"] {
+  color: #7eba41;
+}
+.green a, .green .template-component-list li>span {
+  color: #7eba41;
+}
+.green .template-footer .template-component-button:hover, 
+.green .template-widget-tag li a:hover, 
+.green .template-pagination>ul>li:hover, 
+.green .template-pagination>ul>li.template-pagination-button-selected, 
+.green .template-color-white.template-component-button:hover, 
+.green .template-color-white .template-component-button:hover, 
+.green .template-component-booking .template-component-booking-vehicle-list>li:hover, 
+.green .template-component-booking .template-component-booking-vehicle-list>li.template-state-selected, 
+.green .template-component-button, .green .template-component-gallery .template-component-gallery-filter-list>li>a:hover, 
+.green .template-component-gallery .template-component-gallery-filter-list>li>a.template-state-selected, 
+.green .template-component-social-icon-list.template-component-social-icon-list-3 li a:hover, 
+.green .template-component-tab.ui-tabs .ui-tabs-nav li.ui-state-default.ui-state-hover, 
+.green .template-component-tab.ui-tabs .ui-tabs-nav li.ui-state-default.ui-state-active, 
+.green .template-component-testimonial-list .template-component-testimonial-list-navigation .template-component-testimonial-list-navigation-left:hover, 
+.green .template-component-testimonial-list .template-component-testimonial-list-navigation .template-component-testimonial-list-navigation-right:hover, 
+.green .dtpicker-components .dtpicker-compButton:hover, .green .dtpicker-buttonCont .dtpicker-button:hover {
+  border-color: #7eba41;
+}
+.green .template-footer .template-component-button:hover, .green .template-widget-tag li a:hover, 
+.green .template-pagination>ul>li:hover, .green .template-pagination>ul>li.template-pagination-button-selected, 
+.green .template-component-booking .template-component-booking-item-header>span, 
+.green .template-component-booking .template-component-booking-vehicle-list>li:hover, 
+.green .template-component-booking .template-component-booking-vehicle-list>li.template-state-selected, 
+.green .template-component-booking .template-component-booking-package-list>li.template-state-selected>div.template-component-button-box>.template-component-button, 
+.green .template-component-booking .template-component-booking-service-list>li.template-state-selected>div.template-component-button-box>.template-component-button, .template-component-button:hover, .template-component-counter-bar-list>ul>li>div>div, 
+.green .template-component-gallery .template-component-gallery-filter-list>li>a:hover, .green .template-component-gallery .template-component-gallery-filter-list>li>a.template-state-selected, 
+.green .template-component-go-to-top:hover, .green .template-component-tab.ui-tabs .ui-tabs-nav li.ui-state-default.ui-state-hover, 
+.green .template-component-tab.ui-tabs .ui-tabs-nav li.ui-state-default.ui-state-active, 
+.green .template-component-testimonial-list .template-component-testimonial-list-navigation .template-component-testimonial-list-navigation-left:hover, 
+.green .template-component-testimonial-list .template-component-testimonial-list-navigation .template-component-testimonial-list-navigation-right:hover, 
+.green .template-component-social-icon-list.template-component-social-icon-list-3 li a:hover, 
+.green .dtpicker-components .dtpicker-compButton:hover, .green .dtpicker-buttonCont .dtpicker-button:hover {
+  background-color: #7eba41;
+  color:#ffffff;
+}
+.green .template-icon-meta-search:before {
+  content: "\66";
+  color:#7eba41;
+}
+.green #newsletter-form-submit:hover{
+  color:#ffffff;
+}
+
+
+.alert-danger {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+}
+.alert {
+    border-width: 1px;
+}
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    text-align: center;
+}
+.alert-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #3c763d;
+}
+.alert {
+    border-width: 1px;
+}
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+
