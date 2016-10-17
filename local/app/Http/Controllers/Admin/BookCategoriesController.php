@@ -12,7 +12,7 @@ use Validator;
 class BookCategoriesController extends Controller
 {
   /**
-    * display all books to manage
+    * display all books categories to manage
     */
   public function index(){
     $book_categories = BookCategory::all();
@@ -33,7 +33,7 @@ class BookCategoriesController extends Controller
     return view('admin.categories.index')->with('categories', $book_categories)->with("title", "Book Categories List")->with("breadcrumb", $breadcrumb);
   }
    /**
-    * Add book
+    * Add book category
     */
    public function add(Request $request){
     if($request->isMethod('post')){
@@ -58,7 +58,7 @@ class BookCategoriesController extends Controller
         return redirect()->back()->with('msgs', $msgs);
       }
     }
-  }else{
+  }
    $breadcrumb = array(
     array(
       'title'=>'control panel',
@@ -80,7 +80,7 @@ class BookCategoriesController extends Controller
       )
     );
    return view('admin.categories.add')->with("title", "Add Book Category")->with('title','Add Book Category')->with("breadcrumb", $breadcrumb);
- }
+ 
 
 }
 public function update($id, Request $request){
@@ -140,7 +140,6 @@ public function update($id, Request $request){
    return redirect()->route('admin-book-categories')->with('msgs', $msgs);
  }
  
-
 }
 public function delete($id){
   $category = BookCategory::find($id);

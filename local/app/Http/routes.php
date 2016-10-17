@@ -21,5 +21,10 @@ Route::group(array('prefix' => 'admin'), function () {
    Route::any('/admin-add-category', ['middleware'=>'admin-not-login','uses'=>'Admin\BookCategoriesController@add', 'as'=>'admin-add-book-category']);
    Route::any('/admin-update-category/{id}', ['middleware'=>'admin-not-login','uses'=>'Admin\BookCategoriesController@update', 'as'=>'admin-update-book-category']) ->where('id', '[0-9]+');
    Route::get('/admin-delete-category/{id}', ['middleware'=>'admin-not-login','uses'=>'Admin\BookCategoriesController@delete', 'as'=>'admin-delete-book-category']) ->where('id', '[0-9]+');
-
+ 
+ //////////////////////////Books/////////////////////////////
+   Route::get('/books', ['middleware'=>'admin-not-login','uses'=>'Admin\BooksController@index', 'as'=>'admin-books']);
+   Route::any('books/add', ['middleware'=>'admin-not-login','uses'=>'Admin\BooksController@add', 'as'=>'admin-add-book']);
+   Route::any('book/update/{id}', ['middleware'=>'admin-not-login','uses'=>'Admin\BooksController@update', 'as'=>'admin-update-book']) ->where('id', '[0-9]+');
+   Route::get('book/delete/{id}', ['middleware'=>'admin-not-login','uses'=>'Admin\BooksController@delete', 'as'=>'admin-delete-book']) ->where('id', '[0-9]+'); 
 });
