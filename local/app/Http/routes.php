@@ -32,4 +32,8 @@ Route::group(array('prefix' => 'admin'), function () {
    Route::any('books/add', ['middleware'=>'admin-not-login','uses'=>'Admin\BooksController@add', 'as'=>'admin-add-book']);
    Route::any('book/update/{id}', ['middleware'=>'admin-not-login','uses'=>'Admin\BooksController@update', 'as'=>'admin-update-book']) ->where('id', '[0-9]+');
    Route::get('book/delete/{id}', ['middleware'=>'admin-not-login','uses'=>'Admin\BooksController@delete', 'as'=>'admin-delete-book']) ->where('id', '[0-9]+'); 
+   //////////////////////////Alims/////////////////////////////
+   Route::get('/alims', ['middleware'=>'admin-not-login','uses'=>'Admin\AlimsController@index', 'as'=>'admin-alims']);
+   Route::any('alim/add', ['middleware'=>'admin-not-login','uses'=>'Admin\AlimsController@add', 'as'=>'admin-add-alim']);
+   Route::get('alim/delete/{id}', ['middleware'=>'admin-not-login','uses'=>'Admin\AlimsController@delete', 'as'=>'admin-delete-alim']) ->where('id', '[0-9]+'); 
 });

@@ -55,6 +55,24 @@
       </a>
     </div>
   </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+    <div class="dashboard-stat blue-madison">
+      <div class="visual">
+        <i class="fa fa-comments"></i>
+      </div>
+      <div class="details">
+        <div class="number">
+
+        </div>
+        <div class="desc">
+          Alims Manager
+        </div>
+      </div>
+      <a class="more" href="{!! route('admin-alims') !!}">
+        View Alims <i class="m-icon-swapright m-icon-white"></i>
+      </a>
+    </div>
+  </div>
 </div>
  
 <script>

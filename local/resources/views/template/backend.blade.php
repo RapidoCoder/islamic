@@ -75,33 +75,33 @@
      <div class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
      </div>
      <!-- BEGIN TOP NAVIGATION MENU -->
-      @if(Auth::guard('admin')->check()) 
+     @if(Auth::guard('admin')->check()) 
      <div class="top-menu">
        <ul class="nav navbar-nav pull-right">
         <li class="dropdown dropdown-user">
          <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
            <img alt="" class="img-circle" src="{!! asset('assets/admin/layout/img/avatar.png')!!}"/>
            <span class="username username-hide-on-mobile">
-            
+
              {{Auth::guard('admin')->user()->name}}
-            
+
 
            </span>
            <i class="fa fa-angle-down"></i>
          </a>
          <ul class="dropdown-menu dropdown-menu-default">
           <li>
-           
+
             <a href="{!! route('admin-logout')!!}"><i class="icon-key"></i> Log Out </a>
 
-          
+
           </li>
         </ul>
       </li>
       <!-- END QUICK SIDEBAR TOGGLER -->
     </ul>
   </div>
-   @endIf
+  @endIf
   <!-- END TOP NAVIGATION MENU -->
 </div>
 <!-- END HEADER INNER -->
@@ -110,295 +110,236 @@
 <div class="clearfix"></div>
 <!-- BEGIN CONTAINER -->
 
-adsa
- <div class="page-container">
-         <!-- BEGIN SIDEBAR -->
-         <div class="page-sidebar navbar-collapse collapse">
-            <!-- BEGIN SIDEBAR MENU1 -->
-            <ul class="page-sidebar-menu hidden-sm hidden-xs" data-auto-scroll="true" data-slide-speed="200">
+
+<div class="page-container">
+ <!-- BEGIN SIDEBAR -->
+ <div class="page-sidebar navbar-collapse collapse">
+  <!-- BEGIN SIDEBAR MENU1 -->
+  <ul class="page-sidebar-menu hidden-sm hidden-xs" data-auto-scroll="true" data-slide-speed="200">
+   <li>
+    <a href="javascript:;">
+      <i class="fa fa-clock-o"></i>
+      <span class="title">
+        Books Categories</span>
+        <span class="arrow ">
+        </span>
+      </a>
+      <ul class="sub-menu">
+       <li>
+        <a href="{{route('admin-book-categories')}}">
+          Manage Books categories</a>
+        </li>
+        <li>
+          <a href="{{route('admin-add-book-category')}}">
+            Add Book Category </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="javascript:;">
+          <i class="fa fa-clock-o"></i>
+          <span class="title">
+            Books Writers</span>
+            <span class="arrow ">
+            </span>
+          </a>
+          <ul class="sub-menu">
+           <li>
+            <a href="{{route('admin-book-writers')}}">
+              Manage Books Writers</a>
+            </li>
+            <li>
+              <a href="{{route('admin-add-book-writer')}}">
+                Add Book Writers </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="javascript:;">
+              <i class="fa fa-clock-o"></i>
+              <span class="title">
+                Books</span>
+                <span class="arrow ">
+                </span>
+              </a>
+              <ul class="sub-menu">
                <li>
-                  <a href="javascript:;">
+                <a href="{{route('admin-books')}}">
+                  Manage Books</a>
+                </li>
+                <li>
+                  <a href="{{route('admin-add-book')}}">
+                    Add Book </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="javascript:;">
                   <i class="fa fa-clock-o"></i>
                   <span class="title">
-                  Books Categories</span>
-                  <span class="arrow ">
-                  </span>
+                    Alims</span>
+                    <span class="arrow ">
+                    </span>
                   </a>
                   <ul class="sub-menu">
+                   <li>
+                    <a href="{{route('admin-alims')}}">
+                      Manage Alims</a>
+                    </li>
+                    <li>
+                      <a href="{{route('admin-add-alim')}}">
+                        Add Alim </a>
+                      </li>
+                    </ul>
+                  </li>
+
+
+                </ul>
+                <!-- END SIDEBAR MENU1 -->
+                <!-- BEGIN RESPONSIVE MENU FOR HORIZONTAL & SIDEBAR MENU -->
+                <ul class="page-sidebar-menu visible-sm visible-xs" data-slide-speed="200" data-auto-scroll="true">
+                 <li>
+                  <a href="javascript:;">
+                    <i class="fa fa-clock-o"></i>
+                    <span class="title">
+                      Books Categories</span>
+                      <span class="arrow ">
+                      </span>
+                    </a>
+                    <ul class="sub-menu">
                      <li>
-                        <a href="{{route('admin-book-categories')}}">
+                      <a href="{{route('admin-book-categories')}}">
                         Manage Books categories</a>
-                     </li>
-                     <li>
+                      </li>
+                      <li>
                         <a href="{{route('admin-add-book-category')}}">
-                        Add Book Category </a>
-                     </li>
-                  </ul>
-               </li>
-              
-            </ul>
-            <!-- END SIDEBAR MENU1 -->
-            <!-- BEGIN RESPONSIVE MENU FOR HORIZONTAL & SIDEBAR MENU -->
-            <ul class="page-sidebar-menu visible-sm visible-xs" data-slide-speed="200" data-auto-scroll="true">
-            <li>
-               <a href="javascript:;">
-               <i class="fa fa-clock-o"></i>
-               <span class="title">
-               Shifts</span>
-               <span class="arrow ">
-               </span>
-               </a>
-               <ul class="sub-menu">
-                  <li>
-                     <a href="{{route('admin-book-categories')}}">
-                     Manage Books categories</a>
-                  </li>
-                  <li>
-                     <a href="{{route('admin-add-book-category')}}">
-                     Add Book Category </a>
-                  </li>
-               </ul>
-            </li>
-            <li>
-               <a href="javascript:;">
-               <i class="fa fa-users"></i>
-               <span class="title">
-               Employees </span>
-               <span class="arrow ">
-               </span>
-               </a>
-               <ul class="sub-menu">
-                  <li>
-                     <a href="#">
-                     Manage Employees</a>
-                  </li>
-                  <li>
-                     <a href="#">
-                     Add Employee </a>
-                  </li>
-               </ul>
-            </li>
-            <li>
-               <a href="javascript:;">
-               <i class="fa fa-car"></i>
-               <span class="title">
-               Vehicles </span>
-               <span class="arrow ">
-               </span>
-               </a>
-               <ul class="sub-menu">
-                  <li>
-                     <a href="#">
-                     Manage Vehicles</a>
-                  </li>
-                  <li>
-                     <a href="#">
-                     Add Vehicle </a>
-                  </li>
-               </ul>
-            </li>
-            <li>
-               <a href="javascript:;">
-               <i class="fa fa-ambulance"></i>
-               <span class="title">
-               Vehical Defects</span>
-               <span class="arrow ">
-               </span>
-               </a>
-               <ul class="sub-menu">
-                  <li>
-                     <a href="#">
-                     Manage Vehical Defects</a>
-                  </li>
-               </ul>
-            </li>
-            <li>
-               <a href="javascript:;">
-               <i class="fa fa-check-square"></i>
-               <span class="title">
-               Services </span>
-               <span class="arrow ">
-               </span>
-               </a>
-               <ul class="sub-menu">
-                  <li>
-                     <a href="#">
-                     Manage Services</a>
-                  </li>
-                  <li>
-                     <a href="#">
-                     Add Service </a>
-                  </li>
-               </ul>
-            </li>
-            <li>
-               <a href="javascript:;">
-               <i class="fa fa-plus-square"></i>
-               <span class="title">
-               Steps</span>
-               <span class="arrow ">
-               </span>
-               </a>
-               <ul class="sub-menu">
-                  <li>
-                     <a href="#">
-                     Manage Steps</a>
-                  </li>
-               </ul>
-            </li>
-            <li>
-               <a href="javascript:;">
-               <i class="fa fa-users"></i><i class="fa fa-check-square"></i>
-               <span class="title">
-               Employees-Services </span>
-               <span class="arrow ">
-               </span>
-               </a>
-               <ul class="sub-menu">
-                  <li>
-                     <a href="#">
-                     Manage Employees-Services</a>
-                  </li>
-                  <li>
-                     <a href="#">
-                     Add Employee-Service </a>
-                  </li>
-               </ul>
-            </li>
-            <li>
-               <a href="javascript:;">
-               <i class="fa fa-shopping-cart"></i>
-               <span class="title">
-               Packages </span>
-               <span class="arrow ">
-               </span>
-               </a>
-               <ul class="sub-menu">
-                  <li>
-                     <a href="#">
-                     Manage Packages</a>
-                  </li>
-                  <li>
-                     <a href="#">
-                     Add Packages </a>
-                  </li>
-               </ul>
-            </li>
-            <li>
-               <a href="javascript:;">
-               <i class="fa fa-shopping-cart"></i><i class="fa fa-check-square"></i>
-               <span class="title">
-               Packages-Services</span>
-               <span class="arrow ">
-               </span>
-               </a>
-               <ul class="sub-menu">
-                  <li>
-                     <a href="#">
-                     Manage Packages-Services</a>
-                  </li>
-                  <li>
-                     <a href="#">
-                     Add Package Service </a>
-                  </li>
-               </ul>
-            </li>
-            <li>
-               <a href="javascript:;">
-               <i class="fa fa-credit-card"></i>
-               <span class="title">
-               Booking</span>
-               <span class="arrow ">
-               </span>
-               </a>
-               <ul class="sub-menu">
-                  <li>
-                     <a href="#">
-                     Manage Bookings</a>
-                  </li>
-               </ul>
-            </li>
-            <li>
-               <a href="javascript:;">
-               <i class="fa fa-pencil-square-o"></i>
-               <span class="title">
-               FeedBack</span>
-               <span class="arrow ">
-               </span>
-               </a>
-               <ul class="sub-menu">
-                  <li>
-                     <a href="#">
-                     View FeedBack</a>
-                  </li>
-               </ul>
-            </li>
-            <!-- END RESPONSIVE MENU FOR HORIZONTAL & SIDEBAR MENU -->
-         </div>
-         <!-- END SIDEBAR -->
-         <!-- BEGIN CONTENT -->
-         <div class="page-content-wrapper">
-            <div class="page-content">
-               <h3 class="page-title">
-                  {{ $title }}
-               </h3>
-               <div class="page-bar">
-                  <ul class="page-breadcrumb">
-                     @foreach($breadcrumb as $breadcrumbElement)
-                     <li>
-                        @if($breadcrumbElement['homeIcon'])
-                        <i class="fa fa-home"></i>
-                        @endIf
-                        @if($breadcrumbElement['rightSide'] != false)
-                        {{HTML::linkRoute($breadcrumbElement['url'],$breadcrumbElement['title'] )}}
-                        @else
-                        {{HTML::link("#",$breadcrumbElement['title'] )}}
-                        @endIf
-                        @if($breadcrumbElement['rightSide'])
-                        <i class="fa fa-angle-right"></i>
-                        @endIf
-                     </li>
-                     @endForeach
-                  </ul>
-               </div>
-               <!-- Page Content Goes Here -->
-               @yield('content')
-               <!-- End Of Page Content-->
-               <div class="clearfix"></div>
-               <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-               <div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                     <div class="modal-content">
-                        <div class="modal-header">
-                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                           <h4 class="modal-title">Modal title</h4>
-                        </div>
-                        <div class="modal-body">
-                           Widget settings form goes here
-                        </div>
-                        <div class="modal-footer">
-                           <button type="button" class="btn blue">Save changes</button>
-                           <button type="button" class="btn default" data-dismiss="modal">Close</button>
-                        </div>
+                          Add Book Category </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="javascript:;">
+                        <i class="fa fa-clock-o"></i>
+                        <span class="title">
+                          Books Writers</span>
+                          <span class="arrow ">
+                          </span>
+                        </a>
+                        <ul class="sub-menu">
+                         <li>
+                          <a href="{{route('admin-book-writers')}}">
+                            Manage Books Writers</a>
+                          </li>
+                          <li>
+                            <a href="{{route('admin-add-book-writer')}}">
+                              Add Book Writers </a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="javascript:;">
+                            <i class="fa fa-clock-o"></i>
+                            <span class="title">
+                              Books</span>
+                              <span class="arrow ">
+                              </span>
+                            </a>
+                            <ul class="sub-menu">
+                             <li>
+                              <a href="{{route('admin-books')}}">
+                                Manage Books</a>
+                              </li>
+                              <li>
+                                <a href="{{route('admin-add-book')}}">
+                                  Add Book </a>
+                                </li>
+                              </ul>
+                            </li>
+                            <li>
+                              <a href="javascript:;">
+                                <i class="fa fa-clock-o"></i>
+                                <span class="title">
+                                  Alims</span>
+                                  <span class="arrow ">
+                                  </span>
+                                </a>
+                                <ul class="sub-menu">
+                                 <li>
+                                  <a href="{{route('admin-alims')}}">
+                                    Manage Alims</a>
+                                  </li>
+                                  <li>
+                                    <a href="{{route('admin-add-alim')}}">
+                                      Add Alim </a>
+                                    </li>
+                                  </ul>
+                                </li>
+                                <!-- END RESPONSIVE MENU FOR HORIZONTAL & SIDEBAR MENU -->
+                              </div>
+                              <!-- END SIDEBAR -->
+                              <!-- BEGIN CONTENT -->
+                              <div class="page-content-wrapper">
+                                <div class="page-content">
+                                 <h3 class="page-title">
+                                  {{ $title }}
+                                </h3>
+                                <div class="page-bar">
+                                  <ul class="page-breadcrumb">
+                                   @foreach($breadcrumb as $breadcrumbElement)
+                                   <li>
+                                    @if($breadcrumbElement['homeIcon'])
+                                    <i class="fa fa-home"></i>
+                                    @endIf
+                                    @if($breadcrumbElement['rightSide'] != false)
+                                    {{HTML::linkRoute($breadcrumbElement['url'],$breadcrumbElement['title'] )}}
+                                    @else
+                                    {{HTML::link("#",$breadcrumbElement['title'] )}}
+                                    @endIf
+                                    @if($breadcrumbElement['rightSide'])
+                                    <i class="fa fa-angle-right"></i>
+                                    @endIf
+                                  </li>
+                                  @endForeach
+                                </ul>
+                              </div>
+                              <!-- Page Content Goes Here -->
+                              @yield('content')
+                              <!-- End Of Page Content-->
+                              <div class="clearfix"></div>
+                              <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+                              <div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                 <div class="modal-content">
+                                  <div class="modal-header">
+                                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                   <h4 class="modal-title">Modal title</h4>
+                                 </div>
+                                 <div class="modal-body">
+                                   Widget settings form goes here
+                                 </div>
+                                 <div class="modal-footer">
+                                   <button type="button" class="btn blue">Save changes</button>
+                                   <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                                 </div>
+                               </div>
+                               <!-- /.modal-content -->
+                             </div>
+                             <!-- /.modal-dialog -->
+                           </div>
+                           <!-- /.modal -->
+                         </div>
+                       </div>
                      </div>
-                     <!-- /.modal-content -->
+                   </div>
+                 </div>
+                 <div class="page-footer">
+                   <div class="page-footer-inner">
+                    {!! date("Y")!!} &copy; Islamic.
                   </div>
-                  <!-- /.modal-dialog -->
-               </div>
-               <!-- /.modal -->
-            </div>
-         </div>
-      </div>
-      </div>
-      </div>
-      <div class="page-footer">
-         <div class="page-footer-inner">
-            {!! date("Y")!!} &copy; Islamic.
-         </div>
-         <div class="scroll-to-top">
-            <i class="icon-arrow-up"></i>
-         </div>
-      </div>
-      <!-- END JAVASCRIPTS -->
-</body>         
-</html>
+                  <div class="scroll-to-top">
+                    <i class="icon-arrow-up"></i>
+                  </div>
+                </div>
+                <!-- END JAVASCRIPTS -->
+              </body>         
+              </html>
