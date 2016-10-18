@@ -16,6 +16,8 @@ class CreateBooksTable extends Migration
         $table->increments('id');
         $table->integer('category_id')->unsigned();
         $table->foreign('category_id')->references('id')->on('book_categories')->onDelete('cascade');
+         $table->integer('writer_id')->unsigned();
+        $table->foreign('writer_id')->references('id')->on('book_writers')->onDelete('cascade');
         $table->string('title');
         $table->string('image');
         $table->string('url');
