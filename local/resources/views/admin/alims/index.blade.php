@@ -79,7 +79,7 @@
      <td>{{ $alim->email }}</td>
      <td>{{ $alim->description }}</td>
       <td>
-        {{ link_to_route("admin-update-alim","" ,array("id"=> $alim->id ),array("class"=>"glyphicon glyphicon-pencil","aria-hidden"=>"true","style"=>"padding:0 5px 0 5px;"))}}{{ link_to_route("admin-delete-alim","" ,array("id"=> $alim->id ),array("class"=>"glyphicon glyphicon-trash","aria-hidden"=>"true", "onClick"=>"return confirm('Are You Sure to delete the record');"))}}
+        {{ link_to_route("admin-delete-alim","" ,array("id"=> $alim->id ),array("class"=>"glyphicon glyphicon-trash","aria-hidden"=>"true", "onClick"=>"return confirm('Are You Sure to delete the record');"))}}
       </td>
       </tr>
      @endForeach

@@ -8,6 +8,7 @@ use App\Alim;
 use Validator;
 use Auth;
 use File;
+use Hash;
 
 
 class AlimsController extends Controller
@@ -63,7 +64,7 @@ class AlimsController extends Controller
       
         $alim->name = $request->input('name');
         $alim->image = $name;
-        $alim->password = $request->input('password');
+        $alim->password = Hash::make( $request->input('password') );
          $alim->email = $request->input('email');
         
         $alim->description = $request->input('description');
