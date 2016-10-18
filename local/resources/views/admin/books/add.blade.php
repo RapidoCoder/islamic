@@ -39,11 +39,18 @@
          {{ Form::select('category_id', $categories, '', ['class'=>'form-control']) }}
        </div>
      </div>
+       <div class="form-group">
+        <label class="col-md-3 control-label">Writers</label>
+        <div class="col-md-9">
+
+         {{ Form::select('writer_id', $writers, '', ['class'=>'form-control']) }}
+       </div>
+     </div>
      <div class="form-group">
       <label class="col-md-3 control-label">Title</label>
       <div class="col-md-9">
         <input type="text" name="title" class="form-control" value="{!! old('title') !!}">
-        {!! csrf_field() !!}
+       
       </div>
     </div>
     <div class="form-group">
@@ -75,6 +82,7 @@
  <div class="form-group">
    <div class="row">
     <div class="col-md-offset-3 col-md-9">
+       {!! csrf_field() !!}
      <button type="submit" class="btn green">Create</button>
 
    </div>

@@ -38,6 +38,13 @@
          {{ Form::select('category_id', $categories, $book->category_id, ['class'=>'form-control']) }}
        </div>
      </div>
+        <div class="form-group">
+        <label class="col-md-3 control-label">Writers</label>
+        <div class="col-md-9">
+
+         {{ Form::select('writer_id', $writers, $book->writer_id, ['class'=>'form-control']) }}
+       </div>
+     </div>
      <div class="form-group">
       <label class="col-md-3 control-label">Title</label>
       <div class="col-md-9">

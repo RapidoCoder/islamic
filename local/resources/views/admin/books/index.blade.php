@@ -37,7 +37,7 @@
            <div class="col-md-6">
             <div class="btn-group">
 
-             <!-- <a href="#" style="color:white;"><button id="sample_editable_1_new" class="btn green">Add New <i class="fa fa-plus"></i> -->
+            <a href="{!! route('admin-add-book')!!}" style="color:white;"><button id="sample_editable_1_new" class="btn green">Add New <i class="fa fa-plus"></i> 
            </button></a>
            
            
@@ -57,6 +57,9 @@
       </th>
       <th>
         Category
+      </th>  
+      <th>
+        Writer
       </th>  
       <th>
         Name
@@ -84,8 +87,8 @@
     <tr>
      <td>{{ $book->id }}</td>
      <td >{{ Html::image("assets/media/books/".$book->image,'',array("width"=>"200")) }}</td>
-
      <td>{{ $book->category->name }}</td>
+     <td>{{ $book->writer->name }}</td>
      <td>{{ $book->title }}</td>
      <td>{{ $book->description }}</td>
      <td>{{ $book->created_at }}</td>

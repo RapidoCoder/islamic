@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Book;
 use App\BookCategory;
+use App\BookWriter;
 use Validator;
 use Auth;
 use File;
@@ -45,6 +46,7 @@ class BooksController extends Controller
     if($request->isMethod('post')){
       $validator = Validator::make($request->all(), [
        'category_id'=>'Required|not_in:0',
+       'writer_id'=>'Required|not_in:0',
        'title' => 'required',
        'image' => 'required|image',
        'url' => 'required',
@@ -62,6 +64,7 @@ class BooksController extends Controller
 
         $book = new Book;
         $book->category_id = $request->input('category_id');
+        $book->writer_id = $request->input('writer_id');
         $book->title = $request->input('title');
         $book->image = $name;
         $book->description = $request->input('description');
@@ -78,6 +81,7 @@ class BooksController extends Controller
     }
 
     $categories = ["0" => "Please Select Any Category"] +  BookCategory::pluck('name', 'id')->toArray();
+    $writers = ["0" => "Please Select Any Writer"] +  BookWriter::pluck('name', 'id')->toArray();
     $breadcrumb = array(
       array(
         'title'=>'control panel',
@@ -98,7 +102,7 @@ class BooksController extends Controller
         'url'=>'admin-add-book'
         )
       );
-    return view('admin.books.add')->with("categories", $categories)->with("title", "Add Book")->with('title','Add Book')->with("breadcrumb", $breadcrumb);
+    return view('admin.books.add')->with("categories", $categories)->with("writers", $writers)->with("title", "Add Book")->with('title','Add Book')->with("breadcrumb", $breadcrumb);
   }
 
   public function delete( $id ){
@@ -122,6 +126,7 @@ class BooksController extends Controller
    if($request->isMethod('post')){
     $validator = Validator::make($request->all(), [
      'category_id'=>'Required|not_in:0',
+     'writer_id'=>'Required|not_in:0',
      'title' => 'required',
      'url' => 'required',
      'description' => 'required'
@@ -131,7 +136,7 @@ class BooksController extends Controller
       ->withErrors($validator)
       ->withInput();
     }else{
-      
+
       if($file = $request->file('image')){
         File::delete($this->destinationPath.$book->image);
         $file = $request->file('image');
@@ -143,6 +148,7 @@ class BooksController extends Controller
 
       
       $book->category_id = $request->input('category_id');
+      $book->writer_id = $request->input('writer_id');
       $book->title = $request->input('title');
       $book->url = $request->input('url');
       $book->description = $request->input('description');
@@ -159,6 +165,7 @@ class BooksController extends Controller
   /*get method*/
 
   $categories = ["0" => "Please Select Any Category"] +  BookCategory::pluck('name', 'id')->toArray();
+  $writers = ["0" => "Please Select Any Category"] +  BookWriter::pluck('name', 'id')->toArray();
   $breadcrumb = array(
     array(
       'title'=>'control panel',
@@ -179,7 +186,7 @@ class BooksController extends Controller
       'url'=>'admin-add-book'
       )
     );
-  return view('admin.books.update')->with("categories", $categories)->with('book', $book)->with("title", "Add Book")->with('title','Add Book')->with("breadcrumb", $breadcrumb);
+  return view('admin.books.update')->with("categories", $categories)->with("writers", $writers)->with('book', $book)->with("title", "Add Book")->with('title','Add Book')->with("breadcrumb", $breadcrumb);
 
 }else{
   $msgs = array("type" => "alert alert-danger",

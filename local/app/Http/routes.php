@@ -21,6 +21,11 @@ Route::group(array('prefix' => 'admin'), function () {
    Route::any('/admin-add-category', ['middleware'=>'admin-not-login','uses'=>'Admin\BookCategoriesController@add', 'as'=>'admin-add-book-category']);
    Route::any('/admin-update-category/{id}', ['middleware'=>'admin-not-login','uses'=>'Admin\BookCategoriesController@update', 'as'=>'admin-update-book-category']) ->where('id', '[0-9]+');
    Route::get('/admin-delete-category/{id}', ['middleware'=>'admin-not-login','uses'=>'Admin\BookCategoriesController@delete', 'as'=>'admin-delete-book-category']) ->where('id', '[0-9]+');
+ //////////////////////////Books writers/////////////////////////////
+   Route::get('writers', ['middleware'=>'admin-not-login','uses'=>'Admin\BookWritersController@index', 'as'=>'admin-book-writers']);
+   Route::any('writer/add', ['middleware'=>'admin-not-login','uses'=>'Admin\BookWritersController@add', 'as'=>'admin-add-book-writer']);
+   Route::any('writer/update/{id}', ['middleware'=>'admin-not-login','uses'=>'Admin\BookWritersController@update', 'as'=>'admin-update-book-writer']) ->where('id', '[0-9]+');
+   Route::get('writer/delete/{id}', ['middleware'=>'admin-not-login','uses'=>'Admin\BookWritersController@delete', 'as'=>'admin-delete-book-writer']) ->where('id', '[0-9]+');
  
  //////////////////////////Books/////////////////////////////
    Route::get('/books', ['middleware'=>'admin-not-login','uses'=>'Admin\BooksController@index', 'as'=>'admin-books']);
