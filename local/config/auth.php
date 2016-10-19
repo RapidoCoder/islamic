@@ -14,8 +14,8 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
-        'passwords' => 'users',
+    'guard' => 'web',
+    'passwords' => 'users',
     ],
 
     /*
@@ -36,19 +36,23 @@ return [
     */
 
     'guards' => [
-        'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
-         'admin' => [
-        'driver' => 'session',
-        'provider' => 'admin',
-        ],
+    'web' => [
+    'driver' => 'session',
+    'provider' => 'users',
+    ],
+    'admin' => [
+    'driver' => 'session',
+    'provider' => 'admin',
+    ],
+    'alim' => [
+    'driver' => 'session',
+    'provider' => 'alim',
+    ],
 
-        'api' => [
-            'driver' => 'token',
-            'provider' => 'users',
-        ],
+    'api' => [
+    'driver' => 'token',
+    'provider' => 'users',
+    ],
     ],
 
     /*
@@ -69,13 +73,17 @@ return [
     */
 
     'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => App\User::class,
-        ],
-        'admin' => [
-        'driver' => 'eloquent',
-        'model' => App\Admin::class,
+    'users' => [
+    'driver' => 'eloquent',
+    'model' => App\User::class,
+    ],
+    'admin' => [
+    'driver' => 'eloquent',
+    'model' => App\Admin::class,
+    ],
+    'alim' => [
+    'driver' => 'eloquent',
+    'model' => App\Alim::class,
     ],
 
         // 'users' => [
@@ -104,20 +112,20 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
-            'email' => 'auth.emails.password',
-            'table' => 'password_resets',
-            'expire' => 60,
-        ],
+    'users' => [
+    'provider' => 'users',
+    'email' => 'auth.emails.password',
+    'table' => 'password_resets',
+    'expire' => 60,
     ],
-     'admins' => [
-        'provider' => 'admin',
-        'email' => 'admin.auth.emails.password',
-        'table' => 'password_resets',
-        'expire' => 60,
+    ],
+    'admins' => [
+    'provider' => 'admin',
+    'email' => 'admin.auth.emails.password',
+    'table' => 'password_resets',
+    'expire' => 60,
     ]
     
 
 
-];
+    ];

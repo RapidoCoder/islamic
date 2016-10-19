@@ -158,7 +158,7 @@ class BooksController extends Controller
       $book->save();
 
       $msgs = array("type" => "alert alert-success",
-        "msg" => "Record Inserted Successfully");
+        "msg" => "Record Updated Successfully");
       return redirect()->route('admin-books')->with('msgs', $msgs); 
     }
   }

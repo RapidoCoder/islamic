@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="portlet-body form">
-     <form class="form-horizontal" role="form" method="POST" action="{!! route('admin-update-book', array($book->id)) !!}"  enctype="multipart/form-data">
+     <form class="form-horizontal" role="form" method="POST" action="{!! route('alim-update-book', array($book->id)) !!}"  enctype="multipart/form-data">
       <div class="form-body">
        <div class="form-group">
         <label class="col-md-3 control-label">Categories</label>

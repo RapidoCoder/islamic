@@ -14,7 +14,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
-        \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
+    \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
     ];
 
     /**
@@ -23,17 +23,17 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middlewareGroups = [
-        'web' => [
-            \App\Http\Middleware\EncryptCookies::class,
-            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-            \Illuminate\Session\Middleware\StartSession::class,
-            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \App\Http\Middleware\VerifyCsrfToken::class,
-        ],
+    'web' => [
+    \App\Http\Middleware\EncryptCookies::class,
+    \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+    \Illuminate\Session\Middleware\StartSession::class,
+    \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+    \App\Http\Middleware\VerifyCsrfToken::class,
+    ],
 
-        'api' => [
-            'throttle:60,1',
-        ],
+    'api' => [
+    'throttle:60,1',
+    ],
     ];
 
     /**
@@ -44,12 +44,14 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \App\Http\Middleware\Authenticate::class,
-        'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
-        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
-        'admin-loggedin' => \App\Http\Middleware\RedirectIfAuthenticatedAdmin::class,
-        'admin-not-login' => \App\Http\Middleware\RedirectIfNotAuthenticatedAdmin::class,
-        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+    'auth' => \App\Http\Middleware\Authenticate::class,
+    'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+    'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
+    'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+    'admin-loggedin' => \App\Http\Middleware\RedirectIfAuthenticatedAdmin::class,
+    'admin-not-login' => \App\Http\Middleware\RedirectIfNotAuthenticatedAdmin::class,
+    'alim-loggedin' => \App\Http\Middleware\RedirectIfAuthenticatedAlim::class,
+    'alim-not-login' => \App\Http\Middleware\RedirectIfNotAuthenticatedAlim::class,
+    'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
     ];
-}
+  }
