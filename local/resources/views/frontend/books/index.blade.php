@@ -37,7 +37,7 @@
                       {!! $book->writer->name !!} </a>
                       
                     </li>
-                
+                </ul>
                 </div>
                 <div class="col-md-7 blog-article">
                   <h3>
@@ -47,7 +47,7 @@
                   <p>
                       {!! $book->description!!}
                   </p>
-                  <a class="btn blue" href="{!! route('book-detail',array($book->id)) !!}">
+                   <a class="btn blue" href="{!! route('book-detail',array($book->id)) !!}">
                   Read more <i class="m-icon-swapright m-icon-white"></i>
                   </a>
                 </div>
