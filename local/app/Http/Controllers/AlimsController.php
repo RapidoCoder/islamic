@@ -56,9 +56,9 @@ class AlimsController extends Controller
     * Logout
     */
     public function logout(){
-      if(Auth::guard('admin')->check()){
-         Auth::guard('admin')->logout();
-         return redirect()->route('admin-login');
+      if(Auth::guard('alim')->check()){
+         Auth::guard('alim')->logout();
+         return redirect()->route('alim-login');
       }
     }
 }

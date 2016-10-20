@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Alim;
+use App\Book;
 use Validator;
 use Auth;
 use File;
@@ -14,6 +15,7 @@ use Hash;
 class AlimsController extends Controller
 {
   private $destinationPath = "assets/media/alims/";
+  private $destinationPathBooks= "assets/media/books/";
    /**
     * display all alims to manage
     */
@@ -102,6 +104,7 @@ class AlimsController extends Controller
   public function delete( $id ){
     $alim = Alim::find($id);
     if($alim){
+      $this->removeBooks($id);
       File::delete($this->destinationPath.$alim->image);
       $alim->delete();
       $msgs = array("type" => "alert alert-danger",
@@ -112,6 +115,13 @@ class AlimsController extends Controller
       "msg" => "Record Not Found");
      return redirect()->route('admin-alims')->with('msgs', $msgs);
    }
+ }
+ public function removeBooks($id){
+   $books = Book::where('posted_by', '!=', 'admin')->where('posted_id', '=', $id)->get();
+   foreach($books as $book){
+     File::delete($this->destinationPathBooks.$book->image);
+   }
+   Book::where('posted_by', '!=', 'admin')->where('posted_id', '=', $id)->delete();
  }
  
 }
