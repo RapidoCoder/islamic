@@ -41,7 +41,7 @@
                 </div>
                 <div class="col-md-7 blog-article">
                   <h3>
-                  <a href="page_blog_item.html">
+                  <a href="{!! route('book-detail',array($book->id)) !!}">
                    {!! $book->title!!} </a>
                   </h3>
                   <p>
@@ -105,7 +105,7 @@ jQuery(document).ready(function() {
 
     Metronic.init(); // init metronic core components
       Layout.init(); // init current layout
-      Login.init();
+     // Login.init();
       Demo.init();
     });
 </script>

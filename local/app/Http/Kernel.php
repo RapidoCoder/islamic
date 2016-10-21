@@ -52,6 +52,8 @@ class Kernel extends HttpKernel
     'admin-not-login' => \App\Http\Middleware\RedirectIfNotAuthenticatedAdmin::class,
     'alim-loggedin' => \App\Http\Middleware\RedirectIfAuthenticatedAlim::class,
     'alim-not-login' => \App\Http\Middleware\RedirectIfNotAuthenticatedAlim::class,
+    'user-loggedin' => \App\Http\Middleware\RedirectIfAuthenticatedUser::class,
+    'user-not-login' => \App\Http\Middleware\RedirectIfNotAuthenticatedUser::class,
     'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
     ];
   }
