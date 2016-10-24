@@ -14,12 +14,12 @@
                     <li>
                       <i class="fa fa-calendar glyphicons-icons"></i>
                       <a href="javascript:;">
-                      {!! $book->created_at->format('M d Y')!!}  </a>
+                      {!! $book->created_at->format('M d Y ')!!}  </a>
                     </li>
                     <li>
                       <i class="fa fa-comments glyphicons-icons"></i>
-                      <a href="javascript:;">
-                      38 Comments </a>
+                      <a href="{!! route('book-detail',array($book->id)) !!}">
+                      {{$book->commentsCount->count }} Comments </a>
                     </li>
                   </ul>
                   <ul class="list-inline blog-tags">

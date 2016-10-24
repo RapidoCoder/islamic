@@ -10,11 +10,12 @@ use App\Book;
 use Carbon\Carbon;
 use App\BookCategory;
 use App\BookWriter;
+use App\BookComment;
 class BooksController extends Controller
 {
   public function index(){
-   $books =  Book::orderBy('id', 'desc')->paginate(15);
 
+   $books =  Book::orderBy('id', 'desc')->paginate(15);
    $breadcrumb = array(
     array(
       'title'=>'control panel',
@@ -85,12 +86,14 @@ return view('frontend/books/index')->with('title', 'Books By Writer '. $writerNa
 }
 
 public function bookDetails($id){
+ $comments = array(); 
  $book =  Book::find($id);
+ $comments = BookComment::orderBy('id', 'desc')->where('book_id', '=', $id)->get();
  
  if($book == null){
   return redirect()->back();
   }
-
+ 
 
 $breadcrumb = array(
   array(
@@ -106,6 +109,6 @@ $breadcrumb = array(
     'url'=>'book Detail'
     )
   );
-return view('frontend/books/detail')->with('title', 'Book Details ')->with('breadcrumb', $breadcrumb)->with('book', $book);
+return view('frontend/books/detail')->with('title', 'Book Details ')->with('breadcrumb', $breadcrumb)->with('book', $book)->with('comments', $comments);
 }
 }

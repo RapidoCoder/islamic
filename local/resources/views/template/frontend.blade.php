@@ -32,6 +32,8 @@ f <!DOCTYPE html>
   {!! Html::style('assets/admin/layout/css/custom.css')!!}
   {!! Html::style('assets/global/plugins/bootstrap-summernote/summernote.css')!!}
   {!! Html::style('assets/global/plugins/icheck/skins/all.css')!!}
+  {!! Html::style('assets/admin/pages/css/timeline.css')!!}
+  
   {!! Html::script('assets/global/plugins/jquery.min.js')!!}
   {!! Html::script('assets/global/plugins/jquery-migrate.min.js')!!}
   {!! Html::script('assets/global/plugins/jquery-ui/jquery-ui.min.js')!!}
@@ -217,54 +219,59 @@ f <!DOCTYPE html>
                   @endForeach
                 </ul>
               </div>
-              @if(Session::has('msg'))
-              <div class="{{Session::get('msg')['type']}}" role="alert">
-
-                <p class="text-center">{{Session::get('msg')['message']}}</p>
-              </div>
-              @endif
-              <h3 class="page-title">
-                {{ $title }}
-              </h3>
-              <!-- Page Content Goes Here -->
-              
-              
-              @yield('content')
-              <!-- End Of Page Content-->
-              <div class="clearfix"></div>
-              <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-              <div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                 <div class="modal-content">
-                  <div class="modal-header">
-                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                   <h4 class="modal-title">Modal title</h4>
-                 </div>
-                 <div class="modal-body">
-                   Widget settings form goes here
-                 </div>
-                 <div class="modal-footer">
-                   <button type="button" class="btn blue">Save changes</button>
-                   <button type="button" class="btn default" data-dismiss="modal">Close</button>
-                 </div>
-               </div>
-               <!-- /.modal-content -->
+              @if ($errors->any())
+              <div class="alert alert-danger" role="alert">
+               {!!  implode('', $errors->all('<p class="text-center">:message</p>')) !!}
              </div>
-             <!-- /.modal-dialog -->
+             @endif
+             @if(Session::has('msg'))
+             <div class="{{Session::get('msg')['type']}}" role="alert">
+
+              <p class="text-center">{{Session::get('msg')['message']}}</p>
+            </div>
+            @endif
+            <h3 class="page-title">
+              {{ $title }}
+            </h3>
+            <!-- Page Content Goes Here -->
+            
+            
+            @yield('content')
+            <!-- End Of Page Content-->
+            <div class="clearfix"></div>
+            <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+               <div class="modal-content">
+                <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                 <h4 class="modal-title">Modal title</h4>
+               </div>
+               <div class="modal-body">
+                 Widget settings form goes here
+               </div>
+               <div class="modal-footer">
+                 <button type="button" class="btn blue">Save changes</button>
+                 <button type="button" class="btn default" data-dismiss="modal">Close</button>
+               </div>
+             </div>
+             <!-- /.modal-content -->
            </div>
-           <!-- /.modal -->
+           <!-- /.modal-dialog -->
          </div>
+         <!-- /.modal -->
        </div>
      </div>
    </div>
  </div>
- <div class="page-footer">
-   <div class="page-footer-inner">
-    {!! date("Y")!!} &copy; Islamic.
-  </div>
-  <div class="scroll-to-top">
-    <i class="icon-arrow-up"></i>
-  </div>
+</div>
+<div class="page-footer">
+ <div class="page-footer-inner">
+  {!! date("Y")!!} &copy; Islamic.
+</div>
+<div class="scroll-to-top">
+  <i class="icon-arrow-up"></i>
+</div>
 </div>
 <!-- END JAVASCRIPTS -->
 

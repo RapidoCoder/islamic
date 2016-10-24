@@ -54,14 +54,18 @@ Route::group(array('prefix' => 'alim'), function () {
 
 
 /*******************FrontEnd Routes******************/
- Route::get('/', ['uses'=>'Frontend\HomeController@index', 'as'=>'home']);
-  /************* Books Portion *********/
- Route::get('/books', ['uses'=>'Frontend\BooksController@index', 'as'=>'books']);
- Route::get('/books/category/{id}', ['uses'=>'Frontend\BooksController@booksByCategory', 'as'=>'by-category'])->where('id', '[0-9]+');
- Route::get('/books/writer/{id}', ['uses'=>'Frontend\BooksController@booksByWriter', 'as'=>'by-writer'])->where('id', '[0-9]+');
- Route::get('/book/detail/{id}', ['uses'=>'Frontend\BooksController@bookDetails', 'as'=>'book-detail'])->where('id', '[0-9]+');
+Route::get('/', ['uses'=>'Frontend\HomeController@index', 'as'=>'home']);
+/************* Books Portion *********/
+Route::get('/books', ['uses'=>'Frontend\BooksController@index', 'as'=>'books']);
+Route::get('/books/category/{id}', ['uses'=>'Frontend\BooksController@booksByCategory', 'as'=>'by-category'])->where('id', '[0-9]+');
+Route::get('/books/writer/{id}', ['uses'=>'Frontend\BooksController@booksByWriter', 'as'=>'by-writer'])->where('id', '[0-9]+');
+Route::get('/book/detail/{id}', ['uses'=>'Frontend\BooksController@bookDetails', 'as'=>'book-detail'])->where('id', '[0-9]+');
 
 
- Route::post('/register-user', ['uses'=>'Frontend\UsersController@register', 'as'=>'register-user']);
- Route::post('/user_exist', ['uses'=>'Frontend\UsersController@userExist', 'as'=>'user-exist']);
-  Route::get('/user/logout', ['middleware'=>'user-not-login','uses'=>'Frontend\UsersController@logout', 'as'=>'user-logout']);
+Route::post('/register-user', ['uses'=>'Frontend\UsersController@register', 'as'=>'register-user']);
+Route::post('/user_exist', ['uses'=>'Frontend\UsersController@userExist', 'as'=>'user-exist']);
+Route::get('/user/logout', ['middleware'=>'user-not-login','uses'=>'Frontend\UsersController@logout', 'as'=>'user-logout']);
+Route::get('/email-verification/{token}', ['uses'=>'Frontend\UsersController@verification', 'as'=>'email-verification']);
+Route::get('/google-redirect', ['uses'=>'Frontend\UsersController@googleRedirect', 'as'=>'google-redirect']);
+Route::get('/google-callback', ['uses'=>'Frontend\UsersController@googleCallback', 'as'=>'google-callback']);
+Route::post('/submit_comment', ['uses'=>'Frontend\BookCommentsController@submitComment', 'as'=>'submit_comment']);

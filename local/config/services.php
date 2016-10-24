@@ -15,24 +15,29 @@ return [
     */
 
     'mailgun' => [
-        'domain' => env('MAILGUN_DOMAIN'),
-        'secret' => env('MAILGUN_SECRET'),
+    'domain' => env('MAILGUN_DOMAIN'),
+    'secret' => env('MAILGUN_SECRET'),
     ],
 
     'ses' => [
-        'key' => env('SES_KEY'),
-        'secret' => env('SES_SECRET'),
-        'region' => 'us-east-1',
+    'key' => env('SES_KEY'),
+    'secret' => env('SES_SECRET'),
+    'region' => 'us-east-1',
     ],
 
     'sparkpost' => [
-        'secret' => env('SPARKPOST_SECRET'),
+    'secret' => env('SPARKPOST_SECRET'),
     ],
 
     'stripe' => [
-        'model' => App\User::class,
-        'key' => env('STRIPE_KEY'),
-        'secret' => env('STRIPE_SECRET'),
+    'model' => App\User::class,
+    'key' => env('STRIPE_KEY'),
+    'secret' => env('STRIPE_SECRET'),
+    ],
+    'google' => [
+    'client_id' => '721418051784-ilo3hbv525gfitkhpduj370ghn33f0ng.apps.googleusercontent.com',
+    'client_secret' => 'icbYIPRUC1o-K4zOIjsg5Jop',
+    'redirect' => 'http://localhost/islamic/google-callback/',
     ],
 
-];
+    ];

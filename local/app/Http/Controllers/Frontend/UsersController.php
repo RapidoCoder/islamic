@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
 use Hash;
 use Auth;
-
+use Mail;
+use Socialite;
 
 class UsersController extends Controller
 {
@@ -28,11 +28,19 @@ class UsersController extends Controller
    $file = $request->file('reg_image');
    $image_name = time()."-".$file->getClientOriginalName();
    $file->move($this->destinationPath, $image_name);
-
-   if( $this->insertUser($name, $email, $password, $image_name, $this->getToken(), 0)){
+   $token = $this->getToken();
+   if( $this->insertUser($name, $email, $password, $image_name, $token, 0)){
+     $info = array(
+      'name'=>$name,
+      'token'=>$token
+      );
+     Mail::send('emails.user', $info, function($message) use ($email) {
+      $message->to($email);
+      $message->subject('Islamic Site Email Verification');
+    });
      $msg = array("type" => "alert alert-success",
-        "message" => "Verificaton Email is sent to Mail");
-     return redirect()->route('home')->with('msg', $msg);
+      "message" => "Verificaton Email is sent to Mail");
+     return redirect()->back()->with('msg', $msg);
    }
  }
    /**
@@ -59,6 +67,26 @@ class UsersController extends Controller
  {
   return hash_hmac('sha256', str_random(40), config('app.key'));
 }
+
+ /**
+   * check user already register
+   * @param $request
+   * @return json encoded response of user exist status
+  */
+ public function verification( $token ){
+  $user = User::where('token', '=', $token)->first();
+  if($user == null){
+    $msg = array("type" => "alert alert-success",
+      "message" => "Verificaton Token not Valid");
+    return redirect()->route('home')->with('msg', $msg);
+  }
+  $user->status = true;
+  $user->save();
+  Auth::guard('user')->login($user);
+  $msg = array("type" => "alert alert-success",
+    "message" => "Thankyou for registering");
+  return redirect()->back()->with('msg', $msg);
+}
    /**
    * insert user
    * @param $name, $email, $password, $image
@@ -74,6 +102,18 @@ class UsersController extends Controller
     $user->status = $status;
     $user->save();
     return true;
+  }
+
+
+  public function googleRedirect()
+  {
+    return Socialite::driver('google')->redirect();
+  }
+
+  public function googleCallback()
+  {
+        $user = Socialite::driver('google')->user();
+        echo "comes here";
   }
   /**
    * user logout

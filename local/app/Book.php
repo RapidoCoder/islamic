@@ -15,4 +15,7 @@ class Book extends Model
    public function writer() {
    return  $this->belongsTo('App\BookWriter');
   }
+    public function commentsCount() {
+   return  $this->hasOne('App\BookComment')->selectRaw('book_id, count(*) as count');
+  }
 }
