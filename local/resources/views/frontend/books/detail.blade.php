@@ -85,11 +85,11 @@
              </div>
            </div>
          </div>
-
+          
          @endForeach
          @if(Auth::guard('user')->check())
          <form action="{!! route('submit_comment')!!}" method="post" >
-         <div class="timeline-item" style="backgro">
+         <div class="timeline-item" >
           <div class="media">
             <img class="todo-userpic pull-left" src="{!!asset('assets/media/users/'. Auth::guard('user')->user()->image) !!}" >
             <div class="media-body">

@@ -59,6 +59,22 @@ class UsersController extends Controller
 
  }
  /**
+   * check user already register
+   * @param $request
+   * @return json encoded response of user login
+  */
+
+ public function userLogin(Request $request){
+  $email = $request->input('email');
+  $password = $request->input('password');
+   if (Auth::guard('user')->attempt(['email' => $email, 'password' => $password])) {
+     echo json_encode( ['logged_in'=>true ] );
+   }else{
+    echo json_encode( ['logged_in'=>false ] );
+  }
+
+}
+ /**
   * Generates Random Token
   * @return random token 
   *
@@ -112,8 +128,8 @@ class UsersController extends Controller
 
   public function googleCallback()
   {
-        $user = Socialite::driver('google')->user();
-        echo "comes here";
+    $user = Socialite::driver('google')->user();
+    echo "comes here";
   }
   /**
    * user logout

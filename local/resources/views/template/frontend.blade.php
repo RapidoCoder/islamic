@@ -292,15 +292,16 @@ f <!DOCTYPE html>
         <div class="modal-body">
           <div id="myTabContent" class="tab-content">
 
-            <div class="tab-pane fade active in" id="signin">
-              <form class="form-horizontal">
+            <div class="tab-pane fade active in">
+              <form class="form-horizontal" action="" method="post" id="signin_form">
                 <fieldset>
                   <!-- Sign In Form -->
                   <!-- Text input-->
+                  <div class="control-group alert-danger" id="signin_message"></div>
                   <div class="control-group">
-                    <label class="control-label" for="userid">Alias:</label>
+                    <label class="control-label" for="userid">Email:</label>
                     <div class="controls">
-                      <input required="" id="userid" name="userid" type="text" class="form-control" placeholder="JoeSixpack" class="input-medium" required="">
+                      <input required="" id="signin_email" name="signin_email" type="text" class="form-control" placeholder="JoeSixpack" class="input-medium" required="">
                     </div>
                   </div>
 
@@ -308,7 +309,7 @@ f <!DOCTYPE html>
                   <div class="control-group">
                     <label class="control-label" for="passwordinput">Password:</label>
                     <div class="controls">
-                      <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
+                      <input required="" id="signin_password" name="signin_password" class="form-control" type="password" placeholder="********" class="input-medium">
                     </div>
                   </div>
 
@@ -327,6 +328,7 @@ f <!DOCTYPE html>
                   <div class="control-group">
                     <label class="control-label" for="signin"></label>
                     <div class="controls">
+                      <input type="hidden" id ="csrf_reg" name="_token" value="{{ csrf_token() }}">
                       <button id="signin" name="signin" class="btn btn-success">Sign In</button>
                     </div>
                   </div>
@@ -440,6 +442,70 @@ $("#confirmsignup").on('click', function(event){
   });
  }else{
    $("#message").html("Fill All Fields Properly");
+ }
+
+
+});
+
+
+$("#confirmsignup").on('click', function(event){
+
+ event.preventDefault();
+ if($('#registeration_form')[0].checkValidity()){
+   var email = $("#reg_user_email").val();
+   var csrf = $("#csrf_reg").val();
+   $.ajax({
+    type: 'POST',
+    url:'{!! route("user-exist") !!}',
+    data: {email : email, _token: csrf},
+    success: function(response) {
+      console.log(response);
+      var response = JSON.parse(response);
+      if( response.exist){
+        $("#message").html("User Already Register");
+      }else{
+        $('#registeration_form').submit();
+
+      } 
+
+    }
+
+  });
+ }else{
+   $("#message").html("Fill All Fields Properly");
+ }
+
+
+});
+
+
+$("#signin").on('click', function(event){
+ console.log("clicked");
+ event.preventDefault();
+ if($('#signin_form')[0].checkValidity()){
+   var email = $("#signin_email").val();
+    var password = $("#signin_password").val();
+   var csrf = $("#csrf_reg").val();
+   $.ajax({
+    type: 'POST',
+    url:'{!! route("user-login") !!}',
+    data: {email : email,password : password, _token: csrf},
+    success: function(response) {
+      console.log(response);
+      var response = JSON.parse(response);
+      if( response.logged_in){
+        var url = '{{ Request::fullUrl() }} ';
+        window.location.href = url;
+      }else{
+        $("#signin_message").html("Email / Password is not correct.");
+
+      } 
+
+    }
+
+  });
+ }else{
+   $("#signin_message").html("Fill All Fields Properly");
  }
 
 

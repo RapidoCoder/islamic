@@ -64,8 +64,8 @@ Route::get('/book/detail/{id}', ['uses'=>'Frontend\BooksController@bookDetails',
 
 Route::post('/register-user', ['uses'=>'Frontend\UsersController@register', 'as'=>'register-user']);
 Route::post('/user_exist', ['uses'=>'Frontend\UsersController@userExist', 'as'=>'user-exist']);
+Route::post('/user_login', ['uses'=>'Frontend\UsersController@userLogin', 'as'=>'user-login']);
 Route::get('/user/logout', ['middleware'=>'user-not-login','uses'=>'Frontend\UsersController@logout', 'as'=>'user-logout']);
 Route::get('/email-verification/{token}', ['uses'=>'Frontend\UsersController@verification', 'as'=>'email-verification']);
-Route::get('/google-redirect', ['uses'=>'Frontend\UsersController@googleRedirect', 'as'=>'google-redirect']);
-Route::get('/google-callback', ['uses'=>'Frontend\UsersController@googleCallback', 'as'=>'google-callback']);
+
 Route::post('/submit_comment', ['uses'=>'Frontend\BookCommentsController@submitComment', 'as'=>'submit_comment']);
