@@ -55,7 +55,7 @@ class AdminController extends Controller
     /**
    * logout
    * @return login form route
-  *//
+  */
     public function logout(){
       if(Auth::guard('admin')->check()){
        Auth::guard('admin')->logout();

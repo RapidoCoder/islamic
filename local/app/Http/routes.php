@@ -36,6 +36,11 @@ Route::group(array('prefix' => 'admin'), function () {
   Route::get('/alims', ['middleware'=>'admin-not-login','uses'=>'Admin\AlimsController@index', 'as'=>'admin-alims']);
   Route::any('alim/add', ['middleware'=>'admin-not-login','uses'=>'Admin\AlimsController@add', 'as'=>'admin-add-alim']);
   Route::get('alim/delete/{id}', ['middleware'=>'admin-not-login','uses'=>'Admin\AlimsController@delete', 'as'=>'admin-delete-alim']) ->where('id', '[0-9]+'); 
+  //////////////////////////video categories/////////////////////////////
+  Route::get('/video-categories', ['middleware'=>'admin-not-login','uses'=>'Admin\VideoCategoriesController@index', 'as'=>'admin-video-categories']);
+  Route::any('/admin-add-video-category', ['middleware'=>'admin-not-login','uses'=>'Admin\VideoCategoriesController@add', 'as'=>'admin-add-video-category']);
+  Route::any('/admin-update-video-category/{id}', ['middleware'=>'admin-not-login','uses'=>'Admin\VideoCategoriesController@update', 'as'=>'admin-update-video-category']) ->where('id', '[0-9]+');
+  Route::get('/admin-delete-video-category/{id}', ['middleware'=>'admin-not-login','uses'=>'Admin\VideoCategoriesController@delete', 'as'=>'admin-delete-video-category']) ->where('id', '[0-9]+');
 });
 
 
@@ -50,6 +55,7 @@ Route::group(array('prefix' => 'alim'), function () {
   Route::any('books/add', ['middleware'=>'alim-not-login','uses'=>'Alim\BooksController@add', 'as'=>'alim-add-book']);
   Route::any('book/update/{id}', ['middleware'=>'alim-not-login','uses'=>'Alim\BooksController@update', 'as'=>'alim-update-book']) ->where('id', '[0-9]+');
   Route::get('book/delete/{id}', ['middleware'=>'alim-not-login','uses'=>'Alim\BooksController@delete', 'as'=>'alim-delete-book']) ->where('id', '[0-9]+'); 
+
 });
 
 
