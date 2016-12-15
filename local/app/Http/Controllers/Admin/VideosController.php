@@ -117,9 +117,6 @@ class VideosController extends Controller
    				$video->video_category_id = $request->input('category_id');
    				$video->title = $request->input('title');
    				$video->description = $request->input('description');
-   				$video->posted_by = 'admin';
-   				$video->posted_id = Auth::guard('admin')->user()->id;
-   				$video->status = true;
    				$video->youtube_id = $params['v'];
    				$video->save();
 

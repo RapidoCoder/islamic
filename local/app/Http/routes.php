@@ -65,6 +65,11 @@ Route::group(array('prefix' => 'alim'), function () {
   Route::any('books/add', ['middleware'=>'alim-not-login','uses'=>'Alim\BooksController@add', 'as'=>'alim-add-book']);
   Route::any('book/update/{id}', ['middleware'=>'alim-not-login','uses'=>'Alim\BooksController@update', 'as'=>'alim-update-book']) ->where('id', '[0-9]+');
   Route::get('book/delete/{id}', ['middleware'=>'alim-not-login','uses'=>'Alim\BooksController@delete', 'as'=>'alim-delete-book']) ->where('id', '[0-9]+'); 
+    //////////////////////////Videos/////////////////////////////
+  Route::get('/videos', ['middleware'=>'alim-not-login','uses'=>'Alim\VideosController@index', 'as'=>'alim-videos']);
+  Route::any('videos/add', ['middleware'=>'alim-not-login','uses'=>'Alim\VideosController@add', 'as'=>'alim-add-video']);
+  Route::any('video/update/{id}', ['middleware'=>'alim-not-login','uses'=>'Alim\VideosController@update', 'as'=>'alim-update-video']) ->where('id', '[0-9]+');
+  Route::get('video/delete/{id}', ['middleware'=>'alim-not-login','uses'=>'Alim\VideosController@delete', 'as'=>'alim-delete-video']) ->where('id', '[0-9]+'); 
 
 });
 
