@@ -118,13 +118,14 @@ return [
     'table' => 'password_resets',
     'expire' => 60,
     ],
-    ],
-    'admins' => [
+       'admins' => [
     'provider' => 'admin',
-    'email' => 'admin.auth.emails.password',
-    'table' => 'password_resets',
+    'email' => 'admin.password',
+    'table' => 'admin_reset_passwords',
     'expire' => 60,
     ]
+    ],
+ 
     
 
 

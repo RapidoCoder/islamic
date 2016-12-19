@@ -90,3 +90,11 @@ Route::get('/user/logout', ['middleware'=>'user-not-login','uses'=>'Frontend\Use
 Route::get('/email-verification/{token}', ['uses'=>'Frontend\UsersController@verification', 'as'=>'email-verification']);
 
 Route::post('/submit_comment', ['uses'=>'Frontend\BookCommentsController@submitComment', 'as'=>'submit_comment']);
+
+/******************Admin Password Reset****************************/
+Route::post('admin/password/email','Admin\PasswordController@sendResetLinkEmail');
+Route::post('admin/password/reset','Admin\PasswordController@reset');
+Route::get('admin/password/reset/{token?}','Admin\PasswordController@showResetForm');
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
