@@ -14,14 +14,15 @@
   {!! Html::style('assets/global/plugins/font-awesome/css/font-awesome.min.css')!!}
   {!! Html::style('assets/global/plugins/simple-line-icons/simple-line-icons.min.css')!!}
   {!! Html::style('assets/global/plugins/bootstrap/css/bootstrap.min.css')!!}
+  {!! Html::style('assets/admin/layout/css/custom.css')!!}
   <style type="text/css">
       .fa{
         margin-right: 10px !important;
     }
 </style>
-<body>
+ <body class="admin-email">
 
-    <div class="container">
+    <div class="container" id="password_reset">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">

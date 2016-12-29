@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\BookCategory;
 use Validator;
 
+
 class BookCategoriesController extends Controller
 {
   /**

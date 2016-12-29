@@ -90,8 +90,14 @@
            <i class="fa fa-angle-down"></i>
          </a>
          <ul class="dropdown-menu dropdown-menu-default">
-          <li>
+              <li>
+            
+            <a href="{{route('admin-settings')}}"><i class="glyphicon glyphicon-cog"></i> Settings </a>
 
+
+          </li>
+          <li>
+            
             <a href="{!! (Auth::guard('admin')->check())? route('admin-logout'):route('alim-logout')!!}"><i class="icon-key"></i> Log Out </a>
 
 

@@ -16,6 +16,10 @@ Route::group(array('prefix' => 'admin'), function () {
   Route::get('/dashboard', ['middleware'=>'admin-not-login','uses'=>'AdminController@dashboard', 'as'=>'admin-dashboard']);
   Route::post('authenticate',array('as' => 'admin-authenticate', 'uses'=>'AdminController@authenticate'));
   Route::get('/logout', ['middleware'=>'admin-not-login','uses'=>'AdminController@logout', 'as'=>'admin-logout']);
+  Route::get('/settings', ['middleware'=>'admin-not-login','uses'=>'AdminController@settings', 'as'=>'admin-settings']);
+  Route::post('/change_name', ['middleware'=>'admin-not-login','uses'=>'AdminController@changeName', 'as'=>'admin-change-name']);
+  Route::post('/change-email', ['middleware'=>'admin-not-login','uses'=>'AdminController@changeEmail', 'as'=>'admin-change-email']);
+   Route::post('/change-password', ['middleware'=>'admin-not-login','uses'=>'AdminController@changePassword', 'as'=>'admin-change-password']);
  //////////////////////////Books categories/////////////////////////////
   Route::get('/categories', ['middleware'=>'admin-not-login','uses'=>'Admin\BookCategoriesController@index', 'as'=>'admin-book-categories']);
   Route::any('/admin-add-category', ['middleware'=>'admin-not-login','uses'=>'Admin\BookCategoriesController@add', 'as'=>'admin-add-book-category']);
@@ -93,7 +97,7 @@ Route::post('/submit_comment', ['uses'=>'Frontend\BookCommentsController@submitC
 
 /******************Admin Password Reset****************************/
 Route::post('admin/password/email','Admin\PasswordController@sendResetLinkEmail');
-Route::post('admin/password/reset','Admin\PasswordController@reset');
+Route::post('admin/password/reset',['uses'=>'Admin\PasswordController@reset', 'as'=>'admin-forget-password']);
 Route::get('admin/password/reset/{token?}','Admin\PasswordController@showResetForm');
 Route::auth();
 

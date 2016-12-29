@@ -92,10 +92,13 @@
 </div>
 <div class="form-actions">
   <label class="checkbox">
+ <a href="{{route('admin-forget-password')}}" class="pull-right">forget password</a>
   </label>
+
   <button type="submit" class="btn green-haze pull-right">
    Login <i class="m-icon-swapright m-icon-white"></i>
  </button>
+
 </div>
 
 
